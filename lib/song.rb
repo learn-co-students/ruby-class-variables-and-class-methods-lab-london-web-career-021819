@@ -2,7 +2,8 @@ require 'pry'
 
 class Song
 
-  attr_accessor :name, :artist, :genre
+  attr_accessor :artist, :genre
+  attr_reader :name
 
   @@count = 0
   @@genres = []
@@ -33,19 +34,29 @@ class Song
     # iterate over @@genres.
     genre_count = {}
     @@genres.each do |genre|
-    # binding.pry
       if genre_count.has_key?(genre)
         genre_count[genre] += 1
       else
-        genre_count[genre] = genre
+        genre_count[genre] = 1
       end
     end
     genre_count
-    binding.pry
   end
 
   def self.artists
     @@artists.uniq
+  end
+
+  def self.artist_count
+    artist_count = {}
+    @@artists.each do |artist|
+      if artist_count.has_key?(artist)
+        artist_count[artist] += 1
+      else
+        artist_count[artist] = 1
+      end
+    end
+    artist_count
   end
 
 end
