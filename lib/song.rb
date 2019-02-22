@@ -2,6 +2,7 @@ require 'pry'
 
 class Song
 
+  # convention to put these first despite being instance variables
   attr_accessor :artist, :genre
   attr_reader :name
 
